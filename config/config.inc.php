@@ -13,6 +13,6 @@ return array(
 	'DB_PORT'			=>	3306,				// 数据库端口
 	'DB_PREFIX'			=>	'ts_',		// 数据库表前缀（因为漫游的原因，数据库表前缀必须写在本文件）
 	'DB_CHARSET'		=>	'utf8',				// 数据库编码
-	'SECURE_CODE'		=>	'1246455a5f0e721f2f',	// 数据加密密钥
+	'SECURE_CODE'		=>	'2534255a63b7f0074b',	// 数据加密密钥
 	'COOKIE_PREFIX'		=>	'TS4_',	// 数据加密密钥
 );

@@ -103,11 +103,11 @@
     </div>
     <!-- END 搜索配置 -->
     
-  <php>if(!empty($pageButton) && !empty($listData['html'])):</php>
+  <php>if(!empty($pageButton) || !empty($listData['html'])):</php>
    <!-- START TOOLBAR -->
   <div class="Toolbar_inbox">
     <div class="page right">
-    共&nbsp;&nbsp;{$listData.totalRows}&nbsp;&nbsp;条记录，{$listData.html}
+    共&nbsp;&nbsp;{$listData.totalRows}&nbsp;&nbsp;条记录&nbsp;&nbsp;{$listData.html}
     </div>  
     <volist name='pageButton' id='b'>
       <a onclick="{$b.onclick}" class="btn_a"><span>{$b.title}</span></a>

@@ -8,6 +8,9 @@ set_time_limit(0);
 define('DEBUG',	true);
 // */
 
+// # 判断PHP版本是否满足
+if(version_compare(PHP_VERSION, '5.3.0', '<'))  exit('require PHP > 5.3.0 !');
+
 //安装检查开始：如果您已安装过ThinkSNS，可以删除本段代码
 if(is_dir('install/') && !file_exists('install/install.lock')){
 	header('location:' . 'install/install.php');

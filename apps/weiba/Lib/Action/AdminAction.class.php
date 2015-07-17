@@ -100,6 +100,13 @@ class AdminAction extends AdministratorAction {
 		}
 		$data['recommend'] = intval($_POST['recommend']);
 		$data['status'] = 1;
+
+		// # 修复，后台上传微吧logo前台没有logo
+		if ($data['logo']) {
+			$data['avatar_big']    = getImageUrlByAttachId($data['logo'], 200, 200);
+			$data['avatar_middle'] = getImageUrlByAttachId($data['logo'], 100, 100);
+		}
+
 		$res = D('Weiba','weiba')->add($data);
 		if($res) {
 			if($_POST['admin_uid']){      //超级圈主加入微吧
@@ -179,6 +186,13 @@ class AdminAction extends AdministratorAction {
 		$data['who_can_post'] = t($_POST['who_can_post']);
 		$data['admin_uid'] = t($_POST['admin_uid']);
 		$data['recommend'] = intval($_POST['recommend']);
+
+		// # 修复，后台上传微吧logo前台没有logo
+		if ($data['logo']) {
+			$data['avatar_big']    = getImageUrlByAttachId($data['logo'], 200, 200);
+			$data['avatar_middle'] = getImageUrlByAttachId($data['logo'], 100, 100);
+		}
+
 		$res = D('weiba')->where('weiba_id='.$weiba_id)->save($data);
 		if($res!==false) {
 			//现有超级圈主

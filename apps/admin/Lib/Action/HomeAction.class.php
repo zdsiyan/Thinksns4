@@ -45,7 +45,7 @@ class HomeAction extends AdministratorAction {
 
 		// 服务器信息
 		//$site_version = model('Xdata')->get('siteopt:site_system_version');
-		$serverInfo[L('PUBLIC_CORE_VERSION')] = 'TS V4.0.602';
+		$serverInfo[L('PUBLIC_CORE_VERSION')] = 'TS V' . C('VERSION');
         $serverInfo[L('PUBLIC_SERVER_PHP')]	= PHP_OS.' / PHP v'.PHP_VERSION;
         $serverInfo[L('PUBLIC_SERVER_SOFT')] = $_SERVER['SERVER_SOFTWARE'];
         $serverInfo[L('PUBLIC_UPLOAD_PERMISSION')] = (@ini_get('file_uploads')) ? ini_get('upload_max_filesize') : '<font color="red">no</font>';
@@ -118,7 +118,7 @@ class HomeAction extends AdministratorAction {
 	public function visitorCount() {
 		model('Online')->dostatus();		// 执行统计 TODO 以后放入计划任务中
 	
-		!$_GET['type'] && $_GET['type'] = 'today';
+		!$_GET['type'] && $_GET['type'] = 'week';
 		switch($_GET['type']) {
 			case 'today':
 				$where = "day ='".date('Y-m-d')."'";

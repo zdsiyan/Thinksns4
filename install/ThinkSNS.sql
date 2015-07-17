@@ -192,12 +192,12 @@ TRUNCATE TABLE `ts_app_tag`;
 
 DROP TABLE IF EXISTS `ts_area`;
 CREATE TABLE IF NOT EXISTS `ts_area` (
-  `area_id` int(11) NOT NULL,
-  `title` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `area_id` int(11) NOT NULL AUTO_INCREMENT COMMENT "id",
+  `title` varchar(255) NOT NULL,
   `pid` int(11) NOT NULL DEFAULT '0',
   `sort` int(11) NOT NULL DEFAULT '1' COMMENT '排序',
   PRIMARY KEY (`area_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=3308;
 
 --
 -- 插入之前先把表清空（truncate） `ts_area`
@@ -7398,7 +7398,7 @@ CREATE TABLE IF NOT EXISTS `ts_system_config` (
   `mtime` timestamp NULL DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`),
   UNIQUE KEY `list_key` (`list`,`key`) USING BTREE
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6665 ;
 
 --
 -- 插入之前先把表清空（truncate） `ts_system_config`
@@ -7613,6 +7613,8 @@ INSERT INTO `ts_system_config` (`id`, `list`, `key`, `value`, `mtime`) VALUES(66
 INSERT INTO `ts_system_config` (`id`, `list`, `key`, `value`, `mtime`) VALUES(6643, 'pageKey', 'admin_Config_feedVideo', 'a:6:{s:3:"key";a:2:{s:15:"youku_client_id";s:15:"youku_client_id";s:13:"tudou_app_key";s:13:"tudou_app_key";}s:8:"key_name";a:2:{s:15:"youku_client_id";s:14:"优酷应用ID";s:13:"tudou_app_key";s:19:"土豆应用App Key";}s:8:"key_type";a:2:{s:15:"youku_client_id";s:4:"text";s:13:"tudou_app_key";s:4:"text";}s:11:"key_default";a:2:{s:15:"youku_client_id";s:0:"";s:13:"tudou_app_key";s:0:"";}s:9:"key_tishi";a:2:{s:15:"youku_client_id";s:0:"";s:13:"tudou_app_key";s:0:"";}s:14:"key_javascript";a:2:{s:15:"youku_client_id";s:0:"";s:13:"tudou_app_key";s:0:"";}}', '2015-06-11 02:27:12');
 INSERT INTO `ts_system_config` (`id`, `list`, `key`, `value`, `mtime`) VALUES(6655, 'pageKey', 'admin_Content_video', 'a:4:{s:3:"key";a:7:{s:8:"video_id";s:8:"video_id";s:4:"name";s:4:"name";s:4:"size";s:4:"size";s:3:"uid";s:3:"uid";s:5:"ctime";s:5:"ctime";s:4:"from";s:4:"from";s:8:"DOACTION";s:8:"DOACTION";}s:8:"key_name";a:7:{s:8:"video_id";s:8:"视频ID";s:4:"name";s:12:"视频名称";s:4:"size";s:12:"视频大小";s:3:"uid";s:12:"上传用户";s:5:"ctime";s:12:"上传时间";s:4:"from";s:6:"来源";s:8:"DOACTION";s:6:"操作";}s:10:"key_hidden";a:7:{s:8:"video_id";s:1:"0";s:4:"name";s:1:"0";s:4:"size";s:1:"0";s:3:"uid";s:1:"0";s:5:"ctime";s:1:"0";s:4:"from";s:1:"0";s:8:"DOACTION";s:1:"0";}s:14:"key_javascript";a:7:{s:8:"video_id";s:0:"";s:4:"name";s:0:"";s:4:"size";s:0:"";s:3:"uid";s:0:"";s:5:"ctime";s:0:"";s:4:"from";s:0:"";s:8:"DOACTION";s:0:"";}}', '2015-07-14 06:20:02');
 INSERT INTO `ts_system_config` (`id`, `list`, `key`, `value`, `mtime`) VALUES(6662, 'pageKey', 'admin_User_disableSendList', 'a:4:{s:3:"key";a:11:{s:3:"uid";s:3:"uid";s:5:"uname";s:5:"uname";s:10:"user_group";s:10:"user_group";s:8:"location";s:8:"location";s:8:"is_audit";s:8:"is_audit";s:9:"is_active";s:9:"is_active";s:7:"is_init";s:7:"is_init";s:5:"ctime";s:5:"ctime";s:6:"reg_ip";s:6:"reg_ip";s:12:"disable_time";s:12:"disable_time";s:8:"DOACTION";s:8:"DOACTION";}s:8:"key_name";a:11:{s:3:"uid";s:3:"UID";s:5:"uname";s:9:"用户名";s:10:"user_group";s:9:"用户组";s:8:"location";s:6:"地区";s:8:"is_audit";s:12:"是否审核";s:9:"is_active";s:12:"是否激活";s:7:"is_init";s:15:"是否初始化";s:5:"ctime";s:12:"注册时间";s:6:"reg_ip";s:8:"注册IP";s:12:"disable_time";s:12:"禁言时间";s:8:"DOACTION";s:6:"操作";}s:10:"key_hidden";a:11:{s:3:"uid";s:1:"0";s:5:"uname";s:1:"0";s:10:"user_group";s:1:"0";s:8:"location";s:1:"0";s:8:"is_audit";s:1:"0";s:9:"is_active";s:1:"0";s:7:"is_init";s:1:"0";s:5:"ctime";s:1:"0";s:6:"reg_ip";s:1:"0";s:12:"disable_time";s:1:"0";s:8:"DOACTION";s:1:"0";}s:14:"key_javascript";a:11:{s:3:"uid";s:0:"";s:5:"uname";s:0:"";s:10:"user_group";s:0:"";s:8:"location";s:0:"";s:8:"is_audit";s:0:"";s:9:"is_active";s:0:"";s:7:"is_init";s:0:"";s:5:"ctime";s:0:"";s:6:"reg_ip";s:0:"";s:12:"disable_time";s:0:"";s:8:"DOACTION";s:0:"";}}', '2015-07-14 07:24:10');
+INSERT INTO `ts_system_config` (`id`, `list`, `key`, `value`, `mtime`) VALUES
+(6664, 'pageKey', 'admin_Upgrade_check', 'a:6:{s:3:"key";a:1:{s:3:"log";s:3:"log";}s:8:"key_name";a:1:{s:3:"log";s:12:"升级日志";}s:8:"key_type";a:1:{s:3:"log";s:8:"textarea";}s:11:"key_default";a:1:{s:3:"log";s:0:"";}s:9:"key_tishi";a:1:{s:3:"log";s:0:"";}s:14:"key_javascript";a:1:{s:3:"log";s:0:"";}}', '2015-07-16 10:24:49');
 
 -- --------------------------------------------------------
 

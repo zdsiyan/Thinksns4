@@ -106,8 +106,8 @@ class NaviModel extends Model {
 	 * @return void
 	 */
 	public function cleanCache() {
-		model('Cache')->rm('topNav');
-		model('Cache')->rm('guestNav');
-		model('Cache')->rm('bottomNav');
-	}	
+		A('Tool', 'Admin')->cleancache();
+		ob_end_clean();
+	}
+
 }

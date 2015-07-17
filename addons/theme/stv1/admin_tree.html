@@ -174,7 +174,7 @@ admin.rmTreeCategory = function(cid, stable, app, module, method)
     return false;
   }
   // 删除操作
-  if(confirm("是否删除该分类？")) {
+  if(confirm("是否删除该分类？(如果是父分类，子分类也将一并删除)")) {
     $.post(U('admin/Public/rmTreeCategory'), {cid:cid, stable:stable, _app:app, _module:module, _method:method}, function(msg) {
       if(msg.status == 1) {
         ui.success(msg.data);

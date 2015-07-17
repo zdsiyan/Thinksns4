@@ -54,6 +54,12 @@ abstract class Action
      */
     private function initSite() {
 
+        //初始化语言包
+        $cacheFile = DATA_PATH . '/lang/_initSiteLang.lock';
+        if(!file_exists($cacheFile)){
+            model('Lang')->initSiteLang();
+        }
+
         $GLOBALS['time_run_detail']['action_init_site_start'] = microtime(true);
 
         //载入网站全局配置
@@ -64,11 +70,6 @@ abstract class Action
             $this->site = model('Xdata')->get('admin_Config:site');
             $GLOBALS['time_run_detail']['action_init_site_siteconfig'] = microtime(true);
             
-            //初始化语言包
-            $cacheFile = DATA_PATH.'/lang/_initSiteLang.lock';
-            if(!file_exists($cacheFile)){
-                model('Lang')->initSiteLang();
-            }        
             $GLOBALS['time_run_detail']['action_init_site_language'] = microtime(true);
             
             //LOGO处理
@@ -111,12 +112,6 @@ abstract class Action
             
             //赋值给全局变量
             F('global_site_config', $this->site);
-        }
-        
-        //初始化语言包
-        $cacheFile = DATA_PATH.'/lang/_initSiteLang.lock';
-        if(!file_exists($cacheFile)){
-        	model('Lang')->initSiteLang();
         }
             
         //检查站点是否关闭

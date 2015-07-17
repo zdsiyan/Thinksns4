@@ -3,7 +3,6 @@
  * 通用验证类
  *
  * @author Medz Seven <lovevipdsw@vip.qq.com>
- * @copyright ©2012-2016 phpwind.com
  * @license http://www.medz.cn
  * @package utility
  */

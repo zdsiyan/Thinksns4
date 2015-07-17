@@ -16,7 +16,7 @@ $menu = array(
 		'index'	=> array(
 			'首页'	=> array(
 				L('PUBLIC_BASIC_INFORMATION')        => U('admin/Home/statistics'),
-				// L('PUBLIC_VISIT_CALCULATION')     => U('admin/Home/visitorCount'),
+				L('PUBLIC_VISIT_CALCULATION')     => U('admin/Home/visitorCount'),
 				//'资源统计'                         => U('admin/Home/sourcesCount'),
 				// L('PUBLIC_MANAGEMENT_LOG')        => U('admin/Home/logs'),
 				'管理日志'                           => U('admin/Home/logs'),
@@ -27,7 +27,8 @@ $menu = array(
 				L('PUBLIC_CLEANCACHE')               => U('admin/Tool/cleancache'),
 				'缓存配置'                           => U('admin/Home/cacheConfig'),
 				'数据备份'                           => U('admin/Tool/backup'),
-				'异常处理'                           => U('admin/Tool/index'),					
+				'异常处理'                           => U('admin/Tool/index'),
+				'在线升级'                           => U('admin/Upgrade/check'),			
 			)
 		),
 

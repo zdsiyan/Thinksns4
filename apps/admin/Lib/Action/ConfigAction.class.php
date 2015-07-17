@@ -1207,10 +1207,11 @@ class ConfigAction extends AdministratorAction {
 			}
 			$rel = true;
 		}
+
+		// 清除导航缓存
+		model('Navi')->cleanCache();
+
 		if ($rel) {
-			// 清除导航缓存
-			model ( 'Navi' )->cleanCache ();
-			
 			$jumpstr = 'nav';
 			if ( $map ['position'] == 1){
 				$jumpstr = "footNav&tabHash=foot";

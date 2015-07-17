@@ -22,7 +22,7 @@ class SociaxChat extends SociaxDB {
             return false;
         }else{
             //删除其他客户端登录的 client_id
-            $res = $this->execute("DELETE FROM ts_message_client WHERE  uid={$uid};");
+            $res = $this->execute("DELETE FROM ts_message_client WHERE uid={$uid};");
             return true;
         }
     }
@@ -54,7 +54,7 @@ class SociaxChat extends SociaxDB {
         $utime = time()-30;
         $res = $this->execute("DELETE FROM ts_message_client WHERE last_active_time<{$utime}");
         
-        return true;;
+        return true;
     }
 
     //添加Client

@@ -309,6 +309,20 @@ class CategoryTreeModel extends Model
 	}
 
 	/**
+	 * s删除分类下的子分类信息
+	 *
+	 * @return void
+	 * @author Medz Seven <lovevipdsw@vip.qq.com>
+	 **/
+	public function rmRfCate($cid)
+	{
+		$list = $this->_model->where('`pid` = ' . intval($cid))->field('`area_id`')->select();
+		foreach ($list as $value) {
+			$this->rmTreeCategory($value['area_id']);
+		}
+	}
+
+	/**
 	 * 删除分类信息操作
 	 * @param integer $cid 分类ID
 	 * @param string $_module 模型名称，默认为null
@@ -323,9 +337,10 @@ class CategoryTreeModel extends Model
 		// 判断是否是包含子分类
 		$isExist = $this->_model->where('pid='.$cid)->count();
 		if($isExist != 0) {
-			$this->setMessage('该分类下存在子分类，删除分类失败');
-			return false;
+			// # 删除该分类下的子分类
+			$this->rmRfCate($cid);
 		}
+
 		// 删除分类操作
 		$map[$this->_talbe.'_id'] = $cid;
 		$result = $this->_model->where($map)->delete();
